@@ -25,3 +25,6 @@ comma-separated list of AWS service names as value for the environment variable
 environment:
     - SERVICES: s3, lambda, dynamodb
 ```
+In the example above, the environment variable `SERVICES` is set to the name 
+of the AWS services we want to use in the application (s3, lambda, and dynamodb).
+
