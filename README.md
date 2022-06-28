@@ -38,7 +38,12 @@ This will prompt for the AWS Access Key, Secret Key, and an AWS region. Provide 
 dummy value for the credentials and a valid region name like `eu-west-1`, but the none
 of the values can be left blank. 
 
-Unlike AWS, LocalStack doens't validate these credentials but complains if not profile is set. The profile is stored in `~/.aws/config` 
+Unlike AWS, LocalStack doens't validate these credentials but complains if not profile is set. The profile is stored in `~/.aws/config`:
+```shell
+[profile localstack]
+region = eu-west-1
+output = json
+```
 
 
 ### Connecting to LocalStack
