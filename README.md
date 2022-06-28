@@ -2,6 +2,7 @@
 
 * [LocalStack](#localstack)
     * [Docker Compose](#docker-compose)
+    * [Configure Local AWS CLI profile](#configure-local-aws-cli-profile)
     * [Connecting to LocalStack](#connecting-to-localstack)
 
 ## LocalStack
@@ -26,6 +27,17 @@ environment:
 ```
 In the example above, the environment variable `SERVICES` is set to the name 
 of the AWS services we want to use in the application (s3, lambda, and dynamodb).
+
+### Configure Local AWS CLI profile
+Configure a fake AWS CLI profile to be able to invoke the services provided by LocalStack. 
+```shell
+# Create a profile called localstack (profile name can be anything)
+aws configure --profile localstack
+```
+This will prompt for the AWS Access Key, Secret Key, and an AWS region. Provide any 
+dummy value for the credentials and a valid region name like `eu-west-1`, but the none
+of the values can be left blank. 
+
 
 ### Connecting to LocalStack
 Todo...
