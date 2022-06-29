@@ -3,6 +3,7 @@
 * [LocalStack](#localstack)
     * [Docker Compose](#docker-compose)
     * [Configure AWS CLI profile](#configure-aws-cli-profile)
+      * [Create S3 Buckets](#create-s3-buckets)
     * [Connecting to LocalStack](#connecting-to-localstack)
 
 ## LocalStack
@@ -45,6 +46,21 @@ region = eu-west-1
 output = json
 ```
 
+#### Create S3 Buckets
+The `--endpoint-url` must be specified when using the AWS CLI to communicate with services running on LocalStack
+```shell
+# Create bucket
+aws --endpoint-url=http://0.0.0.0:4566 s3 mb s3://<bucket-name>
+
+# List buckets
+aws --endpoint-url=http://0.0.0.0:4566 s3api list-buckets --query "Buckets[].Name"
+
+# Output  
+[
+  "mytestbucket",
+  "someOtherBucket"
+]
+```
 
 ### Connecting to LocalStack
 Todo...
