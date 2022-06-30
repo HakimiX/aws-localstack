@@ -62,5 +62,17 @@ aws --endpoint-url=http://0.0.0.0:4566 s3api list-buckets --query "Buckets[].Nam
 ]
 ```
 
+TODO: Use make to interact with AWS CLI and LocalStack.
+TODO: implement the following functionality in a `Makefile`
+```shell
+make create-bucket <name>
+
+make upload-object <file>
+
+make create-secret <name>
+
+etc.
+```
+
 ### Connecting to LocalStack
 Todo...
