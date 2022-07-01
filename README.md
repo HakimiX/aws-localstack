@@ -23,11 +23,11 @@ Start LocalStack inside a Docker container using the LocalStack CLI:
 # Start 
 localstack start -d
 
-# See status of AWS services
-localstack service status
-
 # LocalStack is running on 
 http://localhost:4566
+
+# See status of AWS services
+localstack service status
 ```
 ![](resources/images/localstack-cli.png)
 
