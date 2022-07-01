@@ -1,16 +1,35 @@
 # Local Development with AWS using LocalStack 
 
 * [LocalStack](#localstack)
+  * [Install and launch](#install-and-launch)
+    * [Python3 and Docker](#python3-and-docker)
     * [Docker Compose](#docker-compose)
-    * [Configure AWS CLI profile](#configure-aws-cli-profile)
-      * [Create S3 Buckets](#create-s3-buckets)
-    * [Connecting to LocalStack](#connecting-to-localstack)
+  * [Configure AWS CLI profile](#configure-aws-cli-profile)
+    * [Create S3 Buckets](#create-s3-buckets)
+  * [Connecting to LocalStack](#connecting-to-localstack)
 
-## LocalStack
 LocalStack is an open-source mock of the real AWS services. It provides a testing 
 environment on your local machine with the same APIs as the real AWS services. 
 
 LocalStack is a Python application designed to run as an HTTP request processor while listening on specific ports. 
+
+## Install and Launch
+
+### Python3 and Docker
+See the official [LocalStack GitHub repository](https://github.com/localstack/localstack) for requirements _(python, pip, and docker versions)_.
+
+Start LocalStack inside a Docker container using the LocalStack CLI:
+```shell
+# Start 
+localstack start -d
+
+# See status of AWS services
+localstack service status
+
+# LocalStack is running on 
+http://localhost:4566
+```
+![](resources/images/localstack-cli.png)
 
 ### Docker Compose
 The base `docker-compose.yml` file from the [LocalStack](https://github.com/localstack/localstack/blob/master/docker-compose.yml) repository is used. 
@@ -28,6 +47,11 @@ environment:
 ```
 In the example above, the environment variable `SERVICES` is set to the name 
 of the AWS services we want to use in the application (s3, lambda, and dynamodb).
+
+Start LocalStack 
+```shell
+docker-compose up
+```
 
 ### Configure AWS CLI profile
 Configure a fake AWS CLI profile to be able to invoke the services provided by LocalStack. 
