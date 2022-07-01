@@ -70,6 +70,14 @@ region = eu-west-1
 output = json
 ```
 
+Set the default profile 
+```shell
+export AWS_DEFAULT_PROFILE=localstack
+
+# check profiles
+aws configure list 
+```
+
 #### Create S3 Buckets
 The `--endpoint-url` must be specified when using the AWS CLI to communicate with services running on LocalStack
 ```shell
@@ -101,3 +109,8 @@ etc.
 
 ### Connecting to LocalStack
 Todo...
+
+
+### Source 
+
+* [AWS Profiles](https://stackoverflow.com/questions/31012460/how-do-i-set-the-name-of-the-default-profile-in-aws-cli)
