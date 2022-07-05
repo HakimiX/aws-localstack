@@ -110,6 +110,27 @@ etc.
 ### Connecting to LocalStack
 Todo...
 
+### Troublshooting
+
+Error creating S3 bucket: RequestError: send request failed
+```shell
+╷
+│ Error: Error creating S3 bucket: RequestError: send request failed
+│ caused by: Put "http://bucket.0.0.0.0:4566/": dial tcp: lookup bucket.0.0.0.0 on 193.162.153.164:53: no such host
+│ 
+│   with aws_s3_bucket.sample_bucket,
+│   on main.tf line 5, in resource "aws_s3_bucket" "sample_bucket":
+│    5: resource "aws_s3_bucket" "sample_bucket" {
+│ 
+```
+Solution: 
+```terraform
+// Set "s3_force_path_style = true" in the provider
+provider "aws" {
+  s3_force_path_style         = true
+}
+```
+
 
 ### Source 
 
